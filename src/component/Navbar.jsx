@@ -1,17 +1,34 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-scroll";
 import NavLinks from "./NavLinks";
 import Cart from "./Cart";
+import { FaBars } from "react-icons/fa";
+import { FaXmark } from "react-icons/fa6";
 
 const Navbar = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setOpenMenu(!openMenu);
+  };
   return (
     <header className="sm:absolute w-full bg-black text-white ">
       <div className="flex flex-col md:flex-row items-center font-medium justify-around">
-        <div className="z-50 p-5 md:w-auto w-full h-full">
+        <div className="z-50 p-5 md:w-auto w-full h-full flex justify-between ">
           <h1 className="md:cursor-pointer font-semibold font-serif text-2xl md:text-3xl h-15">
             Warld<span className="text-[gold]">Effect</span>
           </h1>
+          <button
+            onClick={toggleMenu}
+            className="text-white text-3xl focus:outline-none focus:text-gray-500"
+          >
+            {openMenu ? (
+              <FaXmark className="h-6 w-7 " />
+            ) : (
+              <FaBars className="h-6 w-7 " />
+            )}
+          </button>
         </div>
         <ul className="md:flex hidden uppercase items-center gap-8 ">
           <li>
@@ -37,31 +54,39 @@ const Navbar = () => {
 
         {/*  MOBILE SCREEN SIZE     */}
 
-        <ul
-          className={`
-          md:hidden bg-black flex flex-col w-full h-[100vh] bottom-0 py-24 pl-4       
-        `}
+        <div
+          className={`space-y-4 ${
+            openMenu
+              ? "fixed flex flex-col justify-center items-center top-0 right-0 left-0 h-screen"
+              : "hidden"
+          }`}
         >
-          <li>
-            <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
-              Home
-            </Link>
-          </li>
-          <NavLinks />
-          <li>
-            <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
-              Booking
-            </Link>
-          </li>
-          <li>
-            <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
-              Subscribe
-            </Link>
-          </li>
-          <div className="py-5">
-            <Cart />
-          </div>
-        </ul>
+          <ul
+            className={`
+          md:hidden bg-black flex flex-col w-full h-[100vh] bottom-0 py-24 pl-4   
+        `}
+          >
+            <li>
+              <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
+                Home
+              </Link>
+            </li>
+            <NavLinks />
+            <li>
+              <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
+                Booking
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
+                Subscribe
+              </Link>
+            </li>
+            <div className="py-5">
+              <Cart />
+            </div>
+          </ul>
+        </div>
       </div>
     </header>
   );
