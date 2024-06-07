@@ -1,27 +1,58 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import NavLinks from "./NavLinks";
 import Cart from "./Cart";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import Button from "../component/Button.jsx";
+import RegistrationForm from "./RegistrationForm.jsx";
 
-const Navbar = () => {
+const Navbar = ({ text }) => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+
+  const toggleRegistrationForm = () => {
+    setIsRegistrationOpen(!isRegistrationOpen);
+  };
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.addEventListener("scroll", handleScroll);
+    };
+  });
+
   return (
-    <header className="sm:absolute w-full bg-black text-white ">
-      <div className="flex flex-col md:flex-row items-center font-medium justify-around">
+    <header className="sm:absolute w-full bg-black text-white">
+      <div
+        className={`flex flex-col md:flex-row items-center font-medium justify-around ${
+          isSticky
+            ? "sticky top-0 left-0 right-0 border bg-black duration-300"
+            : ""
+        }`}
+      >
         <div className="z-50 p-5 md:w-auto w-full h-full flex justify-between ">
           <h1 className="md:cursor-pointer font-semibold font-serif text-2xl md:text-3xl h-15">
             Warld<span className="text-[gold]">Effect</span>
           </h1>
           <button
             onClick={toggleMenu}
-            className="text-white text-3xl focus:outline-none focus:text-gray-500"
+            className="text-white text-3xl focus:outline-none md:hidden"
           >
             {openMenu ? (
               <FaXmark className="h-6 w-7 " />
@@ -30,7 +61,7 @@ const Navbar = () => {
             )}
           </button>
         </div>
-        <ul className="md:flex hidden uppercase items-center gap-8 ">
+        <ul className="md:flex hidden uppercase items-center  gap-8 ">
           <li>
             <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
               Home
@@ -48,8 +79,8 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <div className="md:block hidden">
-          <Cart />
+        <div className="md:block hidden" onClick={toggleRegistrationForm}>
+          <Button text={"Sign Up"} />
         </div>
 
         {/*  MOBILE SCREEN SIZE     */}
@@ -63,7 +94,7 @@ const Navbar = () => {
         >
           <ul
             className={`
-          md:hidden bg-black flex flex-col w-full h-[100vh] bottom-0 py-24 pl-4   
+          md:hidden bg-black flex flex-col w-full h-[100vh] bottom-0 py-24 pl-4
         `}
           >
             <li>
@@ -82,11 +113,19 @@ const Navbar = () => {
                 Subscribe
               </Link>
             </li>
-            <div className="py-5">
-              <Cart />
+            <div className="py-5" onClick={toggleRegistrationForm}>
+              <Button text={"Sign Up"} />
             </div>
           </ul>
         </div>
+
+        {/* Registration form */}
+        {isRegistrationOpen && (
+          <RegistrationForm
+            className="text-white"
+            onClose={toggleRegistrationForm}
+          />
+        )}
       </div>
     </header>
   );
