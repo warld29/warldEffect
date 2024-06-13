@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-unused-vars
+import React from "react";
+
 export const links = [
   {
     name: "collection",
@@ -6,10 +9,10 @@ export const links = [
       {
         Head: "Occations",
         sublink: [
-          { name: "Weddings", link: "/" },
-          { name: "Birthdays", link: "/" },
-          { name: "Functions", link: "/" },
-          { name: "Outdoor Event", link: "/" },
+          { name: "Wedding", link: "/Wedding" },
+          { name: "Birthdays", link: "/Birthdays" },
+          { name: "Functions", link: "/Functions" },
+          { name: "Outdoor Event", link: "/Outdoor Event" },
         ],
       },
     ],
@@ -21,10 +24,10 @@ export const links = [
       {
         Head: "A-Art",
         sublink: [
-          { name: "Nature", link: "/" },
-          { name: "Models", link: "/" },
-          { name: "Animals", link: "/" },
-          { name: "Aesthetic", link: "/" },
+          { name: "Nature", link: "/Nature" },
+          { name: "Models", link: "/Models" },
+          { name: "Animals", link: "/Animals" },
+          { name: "Aesthetic", link: "/Aesthetic" },
         ],
       },
     ],

@@ -46,13 +46,16 @@ const RegistrationForm = ({ onClose, text }) => {
 
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75">
-      <div className="bg-white p-8 w-1/2 h-[85%] rounded-lg">
+      <div className="bg-white text-black p-8 w-full md:w-1/2 h-[85%] rounded-lg relative">
         <h2 className="text-3xl font-bold mb-4">Register</h2>
         {/* Your registration form */}
         <form onSubmit={handleSubmit}>
           {/* Form fields */}
           <div className="mb-4">
-            <label htmlFor="username" className="block text-xl font-bold mb-2">
+            <label
+              htmlFor="username"
+              className="text-black block text-xl font-bold mb-2"
+            >
               First Name
             </label>
             <input
@@ -62,7 +65,7 @@ const RegistrationForm = ({ onClose, text }) => {
               name="username"
               value={formData.username}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:border-[gold] text-2xl"
+              className="w-full border border-gray-300 rounded-md py-3 px-3 focus:outline-none focus:border-[gold] text-2xl text-black"
               required
             />
             <label htmlFor="username" className="block text-xl font-bold mb-2">
@@ -75,7 +78,7 @@ const RegistrationForm = ({ onClose, text }) => {
               name="lastname"
               value={formData.lastname}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:border-[gold] text-2xl"
+              className="text-black w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:border-[gold] text-2xl"
               required
             />
             <label htmlFor="username" className="block text-xl font-bold mb-2">
@@ -88,13 +91,13 @@ const RegistrationForm = ({ onClose, text }) => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:border-[gold] text-2xl ${
-                emailError ? "border-red-500" : ""
+              className={`text-black w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:border-[gold] text-2xl ${
+                emailError ? "border-[red]" : ""
               }`}
               required
             />
             {emailError && (
-              <p className="text-red-600 text-sm mt-1">{emailError}</p>
+              <p className="text-[red] text-sm mt-1">{emailError}</p>
             )}
 
             <div className="mb-4">
@@ -112,13 +115,13 @@ const RegistrationForm = ({ onClose, text }) => {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:border-blue-400 text-2xl"
+                  className="text-black w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:border-[gold] text-2xl"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => togglePasswordVisibility("password")}
-                  className="absolute top-0 right-0 mt-2 mr-2 text-2xl text-center w-[50px] h-[50px]"
+                  className="text-black absolute top-0 right-0 mt-2 mr-2 text-2xl text-center w-[50px] h-[50px]"
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
@@ -139,13 +142,13 @@ const RegistrationForm = ({ onClose, text }) => {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:border-blue-400 text-2xl"
+                  className="text-black w-full border border-gray-300 rounded-md py-4 px-3 focus:outline-none focus:border-[gold] text-2xl"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => togglePasswordVisibility("confirmPassword")}
-                  className="absolute top-0 right-0 mt-2 mr-2 text-2xl text-center w-[50px] h-[50px]"
+                  className="text-black absolute top-0 right-0 mt-2 mr-2 text-2xl text-center w-[50px] h-[50px]"
                 >
                   {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
@@ -160,9 +163,9 @@ const RegistrationForm = ({ onClose, text }) => {
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-0 right-0 m-4 text-white"
+          className="absolute top-0 right-0 m-4 text-[gold]"
         >
-          <FaXmark className="w-5 h-5 font-bold text-3xl" />
+          <FaXmark className="w-5 h-5 font-bold text-3xl " />
         </button>
       </div>
     </div>

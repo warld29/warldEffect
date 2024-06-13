@@ -10,7 +10,7 @@ import Button from "../component/Button.jsx";
 
 const Home = () => {
   return (
-    <div className="">
+    <div id="Home" className="">
       <Carousel className="w-[100%] h-screen absolute">
         <div className="w-full md:w-[100%]">
           <img className="w-full h-screen object-cover" src={lensbg2} alt="" />

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import Cart from "./Cart";
 import { FaBars } from "react-icons/fa";
@@ -38,7 +38,7 @@ const Navbar = ({ text }) => {
   });
 
   return (
-    <header className="sm:absolute w-full bg-black text-white">
+    <header className="sm:absolute w-full bg-black text-white fixed">
       <div
         className={`flex flex-col md:flex-row items-center font-medium justify-around ${
           isSticky
@@ -69,12 +69,21 @@ const Navbar = ({ text }) => {
           </li>
           <NavLinks />
           <li>
-            <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
+            <Link
+              to="booking"
+              smooth={true}
+              duration={500}
+              link="Booking"
+              className="py-7 px-3 inline-block cursor-pointer"
+            >
               Booking
             </Link>
           </li>
           <li>
-            <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
+            <Link
+              to="subcribe"
+              className="py-7 px-3 inline-block cursor-pointer"
+            >
               Subscribe
             </Link>
           </li>
