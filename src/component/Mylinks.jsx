@@ -9,7 +9,7 @@ export const links = [
       {
         Head: "Occations",
         sublink: [
-          { name: "Wedding", link: "/Wedding" },
+          { name: "Wedding", link: "/wedding" },
           { name: "Birthdays", link: "/Birthdays" },
           { name: "Functions", link: "/Functions" },
           { name: "Outdoor Event", link: "/Outdoor Event" },

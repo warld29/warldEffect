@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
-import Cart from "./Cart";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import Button from "../component/Button.jsx";
@@ -81,16 +80,19 @@ const Navbar = ({ text }) => {
           </li>
           <li>
             <Link
-              to="subcribe"
+              to="subscribe"
+              smooth={true}
+              duration={500}
+              link="Subscribe"
               className="py-7 px-3 inline-block cursor-pointer"
             >
               Subscribe
             </Link>
           </li>
         </ul>
-        <div className="md:block hidden" onClick={toggleRegistrationForm}>
+        {/* <div className="md:block hidden" onClick={toggleRegistrationForm}>
           <Button text={"Sign Up"} />
-        </div>
+        </div>  */}
 
         {/*  MOBILE SCREEN SIZE     */}
 
@@ -113,12 +115,18 @@ const Navbar = ({ text }) => {
             </li>
             <NavLinks />
             <li>
-              <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
+              <Link
+                to="/Booking"
+                className="py-7 px-3 inline-block cursor-pointer"
+              >
                 Booking
               </Link>
             </li>
             <li>
-              <Link to="/" className="py-7 px-3 inline-block cursor-pointer">
+              <Link
+                to="/Subscribe"
+                className="py-7 px-3 inline-block cursor-pointer"
+              >
                 Subscribe
               </Link>
             </li>

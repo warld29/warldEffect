@@ -23,10 +23,11 @@ const Wedding = () => {
   let { id } = useParams();
 
   return (
-    <div>
-      <Navbar />
+    <div className="bg-black text-white h-[100vh] w-full" id="wedding">
       <h2>Wedding Details for ID: {id}</h2>
-      {/* Add your wedding details content here */}
+      <div>
+        <h1 className="text-5xl">Bulllshit</h1>
+      </div>
     </div>
   );
 };

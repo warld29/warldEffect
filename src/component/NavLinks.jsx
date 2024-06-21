@@ -9,16 +9,6 @@ import { IoIosArrowDropdown } from "react-icons/io";
 const NavLinks = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
-  const links = [
-    {
-      name: "Home",
-      link: "/",
-    },
-    {
-      name: "Booking",
-      link: "/booking",
-    },
-  ];
   return (
     <>
       {links.map((link, index) => (

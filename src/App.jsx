@@ -5,6 +5,7 @@ import "./App.css";
 import Navbar from "./component/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import Booking from "./pages/Booking.jsx";
+import Subscribe from "./pages/Subscribe.jsx";
 import AppRouter from "./component/AppRouter.jsx";
 import ErrorBoundary from "./component/ErrorBoundary";
 
@@ -18,6 +19,7 @@ function App() {
             {/* Define your routes here */}
             <Route path="/" element={<Home />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/approuter" element={<AppRouter />} />
           </Routes>
         </ErrorBoundary>
